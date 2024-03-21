@@ -40,3 +40,27 @@ function getPlayerChoice() {
       getPlayerChoice()
   } 
 }
+
+function playRound(computerChoice, playerChoice) {
+  if (computerChoice == 'rock' && playerChoice == 'paper') {
+    return 'player'
+  }
+  else if (computerChoice == 'rock' && playerChoice == 'scissors') {
+    return 'computer'
+  }
+  else if (computerChoice == 'paper' && playerChoice == 'scissors') {
+    return 'player'
+  }
+  else if (computerChoice == 'paper' && playerChoice == 'rock') {
+    return 'computer'
+  }
+  else if (computerChoice == 'scissors' && playerChoice == 'rock') {
+    return 'player'
+  }
+  else if (computerChoice == 'scissors' && playerChoice == 'paper') {
+    return 'computer'
+  }
+  else {
+    return 'tie'
+  }
+}
