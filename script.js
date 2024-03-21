@@ -28,3 +28,15 @@ function getComputerChoice() {
       return 'scissors'
   }
 }
+
+function getPlayerChoice() {
+  let playerChoice = prompt("Rock, paper, or scissors?").toLowerCase()
+  switch (playerChoice) {
+    case "rock":
+    case "paper":
+    case "scissors":
+      return playerChoice
+    default:
+      getPlayerChoice()
+  } 
+}
