@@ -17,3 +17,14 @@ Create function to play game
     if the game has been won, exit and announce the winner, otherwise loop
 */
 
+function getComputerChoice() {
+  let computerChoice = Math.floor(Math.random() * 3)
+  switch (computerChoice) {
+    case 0:
+      return 'rock'
+    case 1:
+      return 'paper'
+    case 2:
+      return 'scissors'
+  }
+}
