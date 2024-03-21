@@ -64,3 +64,37 @@ function playRound(computerChoice, playerChoice) {
     return 'tie'
   }
 }
+
+function playGame() {
+  let playerWins = 0;
+  let computerWins = 0;
+
+  for (i = 0; i < 5; i++) {
+    let roundWinner = playRound(getComputerChoice(), getPlayerChoice())
+    switch (roundWinner) {
+      case 'player':
+        playerWins += 1
+        console.log("Player Wins!")
+        break;
+      case 'computer':
+        computerWins += 1
+        console.log("Computer wins")
+        break;
+      default: 
+        console.log('tie')
+        continue;
+    }
+  }
+
+  if (playerWins > computerWins) {
+    console.log("Player wins the game!")
+  }
+  else if (computerWins > playerWins) {
+    console.log("Computer won the game, better luck next time.")
+  }
+  else {
+    console.log("Tie game")
+  }
+}
+
+playGame()
