@@ -29,6 +29,19 @@ function getComputerChoice() {
   }
 }
 
+const display = document.querySelector("#display")
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const selectors = document.querySelectorAll(".selector");
+
+selectors.forEach((button) => {
+  button.addEventListener('click', () => {
+    playRound(getComputerChoice(), button.id);
+  });
+});
+
+/*
 function getPlayerChoice() {
   let playerChoice = prompt("Rock, paper, or scissors?").toLowerCase()
   switch (playerChoice) {
@@ -40,6 +53,7 @@ function getPlayerChoice() {
       getPlayerChoice()
   } 
 }
+*/
 
 function playRound(computerChoice, playerChoice) {
   if (computerChoice == 'rock' && playerChoice == 'paper') {
@@ -65,10 +79,13 @@ function playRound(computerChoice, playerChoice) {
   }
 }
 
-function playGame() {
+function newGame() {
+  resetGame()
   let playerWins = 0;
   let computerWins = 0;
 
+
+/*
   for (i = 0; i < 5; i++) {
     let roundWinner = playRound(getComputerChoice(), getPlayerChoice())
     switch (roundWinner) {
@@ -85,7 +102,7 @@ function playGame() {
         continue;
     }
   }
-
+*/
   if (playerWins > computerWins) {
     console.log("Player wins the game!")
   }
@@ -97,4 +114,14 @@ function playGame() {
   }
 }
 
-playGame()
+function resetGame() {
+  
+}
+
+/*
+Display for showing current game wins, losses, and ties
+Button for starting new game
+Once game is started, display buttons for rock paper scissors that play a round when clicked
+Once five rounds are played declare winner and remove rock paper scissors buttons
+New game button should use reset function to reset wins, losses, and current display
+*/
