@@ -1,0 +1,49 @@
+.main-display, #display, .upper-display, .lower-display, body, .spacer, .buttons {
+  display: flex;
+}
+
+#display, .body {
+  flex-direction: column;
+}
+
+#reset {
+  margin-left: auto;
+}
+
+.spacer, .body {;
+  width: 300px;
+  height: auto;
+}
+
+.body {
+  flex: 1 1 auto;
+}
+
+.spacer {
+  flex: 2 1 auto;
+}
+
+.upper-display {
+  justify-content: center;
+}
+
+.lower-display {
+  gap: 20px;
+}
+
+body {
+  background-color: rgb(70, 68, 67);
+  color: white;
+  font-weight: 700;
+  font-size: 22px;
+  height: 100vh;
+  align-items: center;
+}
+
+button {
+  font-size: 18px;
+}
+
+.buttons {
+  gap: 20px;
+}
