@@ -3,7 +3,7 @@ Create function to get computer choice, returning rock, paper, or scissors
   generate random number between 0 and 2 of type integer and assign to variable randomNum
   assign rock, paper, or scissors based on random number generated
 
-Get player input of type string, downcase and assign to variable playerChoice
+Get player input from button click of type string and assign to variable playerChoice
 
 Create function that plays a round of rock, paper, scissors
   input computer choice and player choice as parameters to the function
@@ -41,23 +41,16 @@ selectors.forEach((button) => {
   });
 });
 
-/*
-function getPlayerChoice() {
-  let playerChoice = prompt("Rock, paper, or scissors?").toLowerCase()
-  switch (playerChoice) {
-    case "rock":
-    case "paper":
-    case "scissors":
-      return playerChoice
-    default:
-      getPlayerChoice()
-  } 
-}
-*/
-
 function playRound(computerChoice, playerChoice) {
+  wins = document.querySelector("#wins");
+  losses = document.querySelector("#losses");
+  ties = document.querySelector("#ties");
+  rounds = 0;
+
+
   if (computerChoice == 'rock' && playerChoice == 'paper') {
-    return 'player'
+    wins.textContent = 1 + Number(wins.textContent);
+    checkWinner(rounds);
   }
   else if (computerChoice == 'rock' && playerChoice == 'scissors') {
     return 'computer'
@@ -79,30 +72,38 @@ function playRound(computerChoice, playerChoice) {
   }
 }
 
-function newGame() {
-  resetGame()
+function checkWinner(rounds) {
+  if (rounds < 5) {
+    return 
+  }
+  else {
+    message = document.querySelector("#message");
+    playerWins = Number(document.querySelector("#wins").textContent);
+    computerWins = Number(document.querySelector("#losses").textContent);
+
+    if (playerWins > computerWins) {
+      message.textContent = "Player Wins!";
+    }
+    else if (computerWins > playerWins) {
+      message.textContent = "Computer Wins! Better luck next time.";
+    }
+    else {
+      message.textContent = "Tie game, try again."
+    }
+  }
+}
+
+function playGame() {
   let playerWins = 0;
   let computerWins = 0;
 
 
-/*
-  for (i = 0; i < 5; i++) {
-    let roundWinner = playRound(getComputerChoice(), getPlayerChoice())
-    switch (roundWinner) {
-      case 'player':
-        playerWins += 1
-        console.log("Player Wins!")
-        break;
-      case 'computer':
-        computerWins += 1
-        console.log("Computer wins")
-        break;
-      default: 
-        console.log('tie')
-        continue;
-    }
-  }
-*/
+
+
+
+
+
+
   if (playerWins > computerWins) {
     console.log("Player wins the game!")
   }
@@ -115,7 +116,7 @@ function newGame() {
 }
 
 function resetGame() {
-  
+
 }
 
 /*
@@ -124,4 +125,92 @@ Button for starting new game
 Once game is started, display buttons for rock paper scissors that play a round when clicked
 Once five rounds are played declare winner and remove rock paper scissors buttons
 New game button should use reset function to reset wins, losses, and current display
+*/
+
+/*
+function getPlayerChoice() {
+  let playerChoice = prompt("Rock, paper, or scissors?").toLowerCase()
+  switch (playerChoice) {
+    case "rock":
+    case "paper":
+    case "scissors":
+      return playerChoice
+    default:
+      getPlayerChoice()
+  } 
+}
+*/
+
+/*
+function newGame() {
+  resetGame()
+  let playerWins = 0;
+  let computerWins = 0;
+
+  const display = document.querySelector("#display")
+  const rock = document.querySelector("#rock");
+  const paper = document.querySelector("#paper");
+  const scissors = document.querySelector("#scissors");
+  const selectors = document.querySelectorAll(".selector");
+
+  selectors.forEach((button) => {
+    button.addEventListener('click', () => {
+      playRound(getComputerChoice(), button.id);
+    });
+  });
+
+    <--
+      for (i = 0; i < 5; i++) {
+        let roundWinner = playRound(getComputerChoice(), getPlayerChoice())
+        switch (roundWinner) {
+          case 'player':
+            playerWins += 1
+            console.log("Player Wins!")
+            break;
+          case 'computer':
+            computerWins += 1
+            console.log("Computer wins")
+            break;
+          default: 
+            console.log('tie')
+            continue;
+        }
+      }
+    -->
+
+  if (playerWins > computerWins) {
+    console.log("Player wins the game!")
+  }
+  else if (computerWins > playerWins) {
+    console.log("Computer won the game, better luck next time.")
+  }
+  else {
+    console.log("Tie game")
+  }
+}
+*/
+
+/*
+function getPlayerChoice() {
+  let playerChoice = prompt("Rock, paper, or scissors?").toLowerCase()
+  switch (playerChoice) {
+    case "rock":
+    case "paper":
+    case "scissors":
+      return playerChoice
+    default:
+      getPlayerChoice()
+  } 
+}
+*/
+
+
+/*
+  create function to get computer choice of type string
+  create display to hold current game stats (wins, losses, ties)
+  create 3 buttons for player choice, each should call function playRound with player choice
+  playRound function should read current stats, play a round, update stats, 
+    and announce winner after 5 rounds
+  create reset button to reset the game
+  
 */
