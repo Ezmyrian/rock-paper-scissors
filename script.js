@@ -30,12 +30,17 @@ function getComputerChoice() {
 }
 
 const selectors = document.querySelectorAll(".selector");
+const reset = document.querySelector("#reset");
 let rounds = 0;
 
 selectors.forEach((button) => {
   button.addEventListener('click', () => {
     playRound(getComputerChoice(), button.id);
   });
+});
+
+reset.addEventListener('click', () => {
+  resetGame()
 });
 
 function playRound(computerChoice, playerChoice) {
