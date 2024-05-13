@@ -1,0 +1,15 @@
+Create function to get computer choice, returning rock, paper, or scissors
+  generate random number between 0 and 2 of type integer and assign to variable randomNum
+  assign rock, paper, or scissors based on random number generated
+
+Get player input from button click of type string and assign to variable playerChoice
+
+Create function that plays a round of rock, paper, scissors
+  input computer choice and player choice as parameters to the function
+  compare player choice and computer choice to determine a winner for the round
+
+Create display to hold current game stats (wins, losses, ties)
+Create 3 buttons for player choice, each should call function playRound with player choice
+PlayRound function should read current stats, play a round, update stats, 
+  and announce winner after 5 rounds
+Create reset button to reset the game
