@@ -43,6 +43,11 @@ function playRound(computerChoice, playerChoice) {
   losses = document.querySelector("#losses");
   ties = document.querySelector("#ties");
 
+  if (rounds > 4) {
+    resetGame();
+  }
+
+
   if (computerChoice == 'rock' && playerChoice == 'paper') {
     wins.textContent = 1 + Number(wins.textContent);
     rounds += 1;
@@ -103,7 +108,11 @@ function checkWinner(rounds) {
 }
 
 function resetGame() {
-
+  rounds = 0;
+  document.querySelector("#wins").textContent = 0;
+  document.querySelector("#losses").textContent = 0;
+  document.querySelector("#ties").textContent = 0;
+  document.querySelector("#message").textContent = "Playing game..."
 }
 
 /*
