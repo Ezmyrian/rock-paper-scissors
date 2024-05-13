@@ -29,11 +29,8 @@ function getComputerChoice() {
   }
 }
 
-const display = document.querySelector("#display")
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
 const selectors = document.querySelectorAll(".selector");
+let rounds = 0;
 
 selectors.forEach((button) => {
   button.addEventListener('click', () => {
@@ -45,30 +42,41 @@ function playRound(computerChoice, playerChoice) {
   wins = document.querySelector("#wins");
   losses = document.querySelector("#losses");
   ties = document.querySelector("#ties");
-  rounds = 0;
-
 
   if (computerChoice == 'rock' && playerChoice == 'paper') {
     wins.textContent = 1 + Number(wins.textContent);
+    rounds += 1;
+    checkWinner(rounds);
+  }
+  else if (computerChoice == 'scissors' && playerChoice == 'rock') {
+    wins.textContent = 1 + Number(wins.textContent);
+    rounds += 1;
+    checkWinner(rounds);
+  }
+  else if (computerChoice == 'paper' && playerChoice == 'scissors') {
+    wins.textContent = 1 + Number(wins.textContent);
+    rounds += 1;
     checkWinner(rounds);
   }
   else if (computerChoice == 'rock' && playerChoice == 'scissors') {
-    return 'computer'
-  }
-  else if (computerChoice == 'paper' && playerChoice == 'scissors') {
-    return 'player'
+    losses.textContent = 1 + Number(losses.textContent);
+    rounds += 1;
+    checkWinner(rounds);
   }
   else if (computerChoice == 'paper' && playerChoice == 'rock') {
-    return 'computer'
-  }
-  else if (computerChoice == 'scissors' && playerChoice == 'rock') {
-    return 'player'
+    losses.textContent = 1 + Number(losses.textContent);
+    rounds += 1;
+    checkWinner(rounds);
   }
   else if (computerChoice == 'scissors' && playerChoice == 'paper') {
-    return 'computer'
+    losses.textContent = 1 + Number(losses.textContent);
+    rounds += 1;
+    checkWinner(rounds);
   }
   else {
-    return 'tie'
+    ties.textContent = 1 + Number(ties.textContent);
+    rounds += 1;
+    checkWinner(rounds);
   }
 }
 
@@ -80,6 +88,7 @@ function checkWinner(rounds) {
     message = document.querySelector("#message");
     playerWins = Number(document.querySelector("#wins").textContent);
     computerWins = Number(document.querySelector("#losses").textContent);
+    rounds = 0;
 
     if (playerWins > computerWins) {
       message.textContent = "Player Wins!";
@@ -90,28 +99,6 @@ function checkWinner(rounds) {
     else {
       message.textContent = "Tie game, try again."
     }
-  }
-}
-
-function playGame() {
-  let playerWins = 0;
-  let computerWins = 0;
-
-
-
-
-
-
-
-
-  if (playerWins > computerWins) {
-    console.log("Player wins the game!")
-  }
-  else if (computerWins > playerWins) {
-    console.log("Computer won the game, better luck next time.")
-  }
-  else {
-    console.log("Tie game")
   }
 }
 
