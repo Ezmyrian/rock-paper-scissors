@@ -18,4 +18,14 @@ function getComputerChoice() {
     }
 }
 
+/*
+Create function getHumanChoice that prompts user for choice of rock, paper, or scissors.
+Return value of users choice.
+*/
+
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, paper, or scissors?");
+    return humanChoice;
+}
+
 
