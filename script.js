@@ -28,4 +28,9 @@ function getHumanChoice() {
     return humanChoice;
 }
 
+//Create two variables in global scope to track human and computer scores
+
+let humanScore = 0;
+let computerScore = 0;
+
 
