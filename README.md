@@ -1,1 +1,2 @@
 # rock-paper-scissors
+In this project I will be building a game of rock, paper, scissors. The computer will generate a random number between 1 and 3 and assign it's choice based on the number for each round. The player will choose by typing via a text box prompt. The choices will then be input to a function to play a round. Each rounds winner will be announced and the result tabulated. Once either the player or computer have won five rounds, they will be declared the winner.
