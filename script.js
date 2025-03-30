@@ -28,11 +28,16 @@ function getHumanChoice() {
     return humanChoice;
 }
 
+/*
+Move playRound function and score variables into a playGame function 
+and call playRound five times
+*/
+function playGame() {
+
 //Create two variables in global scope to track human and computer scores
 
 let humanScore = 0;
 let computerScore = 0;
-
 
 /*
 Create function playRound which accepts two parameters, computerChoice and humanChoice.
@@ -42,50 +47,52 @@ Create function playRound which accepts two parameters, computerChoice and human
     Increment human or computer score as appropriate
 */
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice === "rock") {
-        switch (computerChoice) {
-            case "rock":
-                return "It's a tie";
-            case "paper":
-                computerScore += 1;
-                return "You lose."
-            case "scissors":
-                humanScore += 1;
-                return "Tou win!"
+    function playRound(humanChoice, computerChoice) {
+        humanChoice = humanChoice.toLowerCase();
+        if (humanChoice === "rock") {
+            switch (computerChoice) {
+                case "rock":
+                    return "It's a tie";
+                case "paper":
+                    computerScore += 1;
+                    return "You lose."
+                case "scissors":
+                    humanScore += 1;
+                    return "Tou win!"
+            }
+        }
+        else if (humanChoice === "paper") {
+            switch (computerChoice) {
+                case "rock":
+                    humanScore += 1;
+                    return "Tou win!"
+                case "paper":
+                    return "It's a tie";
+                case "scissors":
+                    computerScore += 1;
+                    return "You lose."
+            }
+        }
+        else if (humanChoice === "scissors") {
+            switch (computerChoice) {
+                case "rock":
+                    computerScore += 1;
+                    return "You lose."
+                case "paper":
+                    humanScore += 1;
+                    return "Tou win!"
+                case "scissors":
+                    return "It's a tie";
+            }
+        }
+        else {
+            return console.log("Not a valid player entry");
         }
     }
-    else if (humanChoice === "paper") {
-        switch (computerChoice) {
-            case "rock":
-                humanScore += 1;
-                return "Tou win!"
-            case "paper":
-                return "It's a tie";
-            case "scissors":
-                computerScore += 1;
-                return "You lose."
-        }
-    }
-    else if (humanChoice === "scissors") {
-        switch (computerChoice) {
-            case "rock":
-                computerScore += 1;
-                return "You lose."
-            case "paper":
-                humanScore += 1;
-                return "Tou win!"
-            case "scissors":
-                return "It's a tie";
-        }
-    }
-    else {
-        return console.log("Not a valid player entry");
+    for (i = 1; i < 6; i++) {
+        playRound(getHumanChoice(), getComputerChoice())
+        console.log(`player score is ${humanScore}`, `computer score is ${computerScore}`)
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound(humanSelection, computerSelection));
+playGame()
