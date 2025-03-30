@@ -34,3 +34,58 @@ let humanScore = 0;
 let computerScore = 0;
 
 
+/*
+Create function playRound which accepts two parameters, computerChoice and humanChoice.
+    Make humanChoice case insensitive
+    Compare choices to determine the winner
+    Console log the winner
+    Increment human or computer score as appropriate
+*/
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    if (humanChoice === "rock") {
+        switch (computerChoice) {
+            case "rock":
+                return "It's a tie";
+            case "paper":
+                computerScore += 1;
+                return "You lose."
+            case "scissors":
+                humanScore += 1;
+                return "Tou win!"
+        }
+    }
+    else if (humanChoice === "paper") {
+        switch (computerChoice) {
+            case "rock":
+                humanScore += 1;
+                return "Tou win!"
+            case "paper":
+                return "It's a tie";
+            case "scissors":
+                computerScore += 1;
+                return "You lose."
+        }
+    }
+    else if (humanChoice === "scissors") {
+        switch (computerChoice) {
+            case "rock":
+                computerScore += 1;
+                return "You lose."
+            case "paper":
+                humanScore += 1;
+                return "Tou win!"
+            case "scissors":
+                return "It's a tie";
+        }
+    }
+    else {
+        return console.log("Not a valid player entry");
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection, computerSelection));
